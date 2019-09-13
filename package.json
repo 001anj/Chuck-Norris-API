@@ -1,0 +1,23 @@
+{
+  "name": "chuck-norris-api",
+  "version": "1.0.0",
+  "description": "API test cases for chuck norris",
+  "main": "index.js",
+  "dependencies": {
+    "newman": "^4.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "newman run test/Chucknorris_API_TEST.postman_collection.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/001anj/Chuck-Norris-API.git"
+  },
+  "author": "Anjo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/001anj/Chuck-Norris-API/issues"
+  },
+  "homepage": "https://github.com/001anj/Chuck-Norris-API#readme"
+}
