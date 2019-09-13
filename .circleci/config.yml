@@ -1,1 +1,10 @@
-
+version: 2.1
+orbs:
+  newman: postman/newman@0.0.2
+jobs:
+  build:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: ./test/Chucknorris_API_TEST.postman_collection.json
