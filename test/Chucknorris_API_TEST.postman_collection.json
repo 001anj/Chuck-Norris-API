@@ -1,0 +1,983 @@
+{
+	"info": {
+		"_postman_id": "9d502348-d337-462e-b536-2c99edb5fcf4",
+		"name": "Chucknorris_API_TEST",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Status 200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2fa69aa1-e4e5-40de-a007-48e8d0940975",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"}); ",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/categories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Response payload contains X number of categories",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b82734a7-21dc-4c0e-878e-16f87c960b97",
+								"exec": [
+									"pm.test(\"Verify the number of records\",function()\r",
+									" {\r",
+									"   var response = JSON.parse(responseBody); \r",
+									"   pm.expect(Object.keys(response).length).to.eql(16);\r",
+									"\r",
+									" });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/categories",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Random",
+			"item": [
+				{
+					"name": "Call category - Animal",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e92d285b-30be-4dce-9a56-c6538c2bf160",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"animal\");",
+									"",
+									"});",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=animal",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "animal"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - Career",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "242e7a43-e9da-4855-9cbf-5f6b1377aaca",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"career\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=career",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "career"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - Celebrity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35c5a0eb-d465-4833-a684-f46c83efed74",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"celebrity\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=celebrity",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "celebrity"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - dev",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6c93bea3-2017-419e-9a94-cea55d9b13b3",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"dev\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=dev",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "dev"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - explicit",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d790bf0-cb17-4240-9006-e5b361a0fd35",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"explicit\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=explicit",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "explicit"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - fashion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "36b0481c-ab16-4fb8-8a57-55c7a0031d31",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"fashion\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=fashion",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "fashion"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - food",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2e8b713-d3d7-4e6b-a33e-ae78ff561ba5",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"food\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=food",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "food"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - history",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "55c1bdcb-daa1-4e9e-941a-ca97dca325a9",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"history\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=history",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "history"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - money",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6fed93c9-1593-4445-9e02-d0da3e9d0bb2",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"money\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=money",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "money"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - movie",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "29cfd635-d5ad-40a4-8639-a7391e93b130",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"movie\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=movie",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "movie"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - music",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "16caa59d-10ab-4d21-81ce-d0f0ec85f6b5",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"music\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=music",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "music"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - political",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2e536789-1a04-452d-803b-25213177044a",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"political\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=political",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "political"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - religion",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2f5891f-88e9-4a9a-9621-08a6019363c4",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"religion\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=religion",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "religion"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - science",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "cd47edfa-556e-4a9e-beda-24bdd1705677",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"science\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=science",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "science"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - sport",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3429ed3c-a6db-4935-b4a9-b6930682f6e9",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"sport\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=sport",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "sport"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call category - travel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "466c2621-c82b-4514-9d1d-ff6a0743b2a8",
+								"exec": [
+									"pm.test(\"Verify category of the result matches the one in the request\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.categories[0];",
+									"    pm.expect(result).to.eql(\"travel\");",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/random?category=travel",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"random"
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "travel"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1BYqNs0MSzmtl9ivZikisA",
+			"item": [
+				{
+					"name": "Verify the value of this joke contains \"entire song“",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "96ea30ee-200e-4287-ba53-a568d1e452a5",
+								"exec": [
+									"pm.test(\"Verify the value of this joke contains entire song\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    var result =  jsonData.value;",
+									"    pm.expect(result).to.eql(\"Chuck Norris once listened to an entire song....on mute\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/1BYqNs0MSzmtl9ivZikisA",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"1BYqNs0MSzmtl9ivZikisA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify that the last modification was later than January 2016",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f50bb8e8-e073-40dc-bb1d-b91e6a4d1bf9",
+								"exec": [
+									"pm.test(\"Check modification done after 2016-01-01\", () => {",
+									"var jsonData = pm.response.json();",
+									"   let date, ",
+									"   isoFormatDate,",
+									"   a = new Date('2016-01-01').getTime();",
+									"",
+									"   for (i = 0; i < jsonData.data; i++) {",
+									"   date = jsonData.name[i].modified;",
+									"   isoFormatDate = new Date(Date.parse(date)).getTime(); // Converting to integer from date format",
+									"   pm.expect(isoFormatDate).to.be.above(a);",
+									"   }",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/1BYqNs0MSzmtl9ivZikisA",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"1BYqNs0MSzmtl9ivZikisA"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Provided icon url is a valid image url",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "392801bc-831f-4281-bb45-e2f2c91d008e",
+								"exec": [
+									"pm.test(\"Provided icon url is a valid image url \", function () {",
+									"   var jsonData = pm.response.json();",
+									"   var validImageUrl =  jsonData.icon_url;",
+									"   pm.expect(validImageUrl).to.eql(\"https://assets.chucknorris.host/img/avatar/chuck-norris.png\"); ",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/1BYqNs0MSzmtl9ivZikisA",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"1BYqNs0MSzmtl9ivZikisA"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "1BYqNs0MSzmtl9ivZikisAxxxxxx",
+			"item": [
+				{
+					"name": "Endpoint shouldn't return a joke",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b9faecf3-927d-4428-860b-1c0c85c9a6ff",
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {",
+									"    pm.response.to.have.status(404);",
+									"});",
+									"",
+									"pm.test(\"Verify endpoint doesn't return a joke\", function () {",
+									"    var result =  pm.response.json();",
+									"    pm.expect(result).not.eql(\"url\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.chucknorris.io/jokes/1BYqNs0MSzmtl9ivZikisAxxxxxx",
+							"protocol": "https",
+							"host": [
+								"api",
+								"chucknorris",
+								"io"
+							],
+							"path": [
+								"jokes",
+								"1BYqNs0MSzmtl9ivZikisAxxxxxx"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
