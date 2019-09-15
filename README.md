@@ -6,7 +6,7 @@
 2. Install Postman and import the collection "Chucknorris_API_TEST" from test folder of repo into Postman.
 3. Install the dependencies mentioned in package.JSON file.
 4. Create a json file by running the command "npm init" in cmd while in same project directory
-5. Change the line scripts with following line "test": "newman run test/Marvel_API_TEST.postman_collection.json"
+5. Change the line scripts with following line "test": "newman run test/Chucknorris_API_TEST.postman_collection.json"
 6. Create a folder "test" inside your project directory and copy the Chucknorris_API_TEST.postman_collection.json in it.
 7. Push the changes to GitHub (exclude node_modules files).
 
