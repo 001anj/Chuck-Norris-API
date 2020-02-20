@@ -1,7 +1,7 @@
 # Chuck-Norris-API
 ## API test for Chuck-Norris-API website using Postman/newman
 
-### Steps to run the collection
+### Steps to run the collections
 1. Create a repository in Github named "Marvel-API" and clone it to your local directory
 2. Install Postman and import the collection "Chucknorris_API_TEST" from test folder of repo into Postman.
 3. Install the dependencies mentioned in package.JSON file.
